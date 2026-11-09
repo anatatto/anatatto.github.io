@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Luiza Crivellari — Tatuadora em BH</title>
+<meta name="description" content="Ana Luiza Crivellari, tatuadora em Belo Horizonte. Blackwork, fineline e ilustração. Peça seu orçamento pelo WhatsApp.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,800;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   1) CORES — troque a cor de destaque (--accent) aqui
+   ===================================================== */
+:root{
+  --bg:#0a0a0a;
+  --bg-2:#141414;
+  --line:#2a2a2a;
+  --text:#f4f2ec;
+  --muted:#a09d96;
+  --accent:#5a6b3a;      /* DESTAQUE (verde militar) - fundos e botões */
+  --accent-text:#8da069; /* versão clara do mesmo verde, para textos sobre o preto */
+  --on-accent:#f4f2ec;   /* texto sobre o verde */
+  --paper:#f1efe9;       /* faixa clara "papel rasgado" */
+  --nav-h:64px;
+}
+
+/* =====================================================
+   2) BASE
+   ===================================================== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;line-height:.95;text-transform:uppercase}
+h2{font-size:clamp(2.6rem,9vw,4.2rem)}
+section{padding:72px 20px}
+.container{max-width:1180px;margin:0 auto}
+.tagline{font-style:italic;font-weight:600;color:var(--accent-text);text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;margin-bottom:10px}
+.lead{color:var(--muted);max-width:560px;margin-top:14px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;padding:15px 22px;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s,box-shadow .2s}
+.btn::after{content:"→";font-size:1.2rem}
+.btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 #fff}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--text)}
+.btn.ghost:hover{box-shadow:5px 5px 0 var(--accent)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.ticker-track{animation:none!important}}
+
+/* =====================================================
+   3) MENU FIXO
+   ===================================================== */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .container{height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.logo{font-weight:800;letter-spacing:.06em;font-size:1.05rem;text-transform:uppercase}
+.logo i{font-family:'Inter',sans-serif;font-weight:300;font-style:italic;text-transform:none;color:var(--accent-text);margin-left:2px}
+.menu{display:flex;gap:30px;list-style:none}
+.menu a{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+.menu a:hover{color:var(--accent-text)}
+.burger{display:none;width:44px;height:44px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:2px;background:var(--text);transition:.3s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+.burger.open span:nth-child(1){top:21px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:21px;transform:rotate(-45deg)}
+@media(max-width:860px){
+  .burger{display:block}
+  .menu{position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .4s}
+  .menu.open{max-height:80vh}
+  .menu a{display:block;padding:17px 24px;font-size:.85rem;border-top:1px solid var(--line)}
+}
+
+/* =====================================================
+   4) ABERTURA (foto dela: fotos/ana.jpg)
+   ===================================================== */
+.hero{position:relative;min-height:100svh;padding:calc(var(--nav-h) + 36px) 20px 40px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 55%;filter:contrast(1.05) brightness(1.15)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#0a0a0a 8%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.25) 100%),linear-gradient(90deg,rgba(10,10,10,.85),transparent 70%)}
+.hero .container{position:relative;z-index:1;width:100%}
+.hero h1{font-size:clamp(4.2rem,21vw,10.5rem);letter-spacing:.01em}
+.hero h1 b{color:var(--accent-text);font-weight:400}
+.hero p.sub{max-width:360px;margin:18px 0 26px;color:#e6e3dc}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.scroll{margin-top:34px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+@media(min-width:900px){.hero{align-items:center}.hero-photo{left:auto;width:58%}.hero-photo img{object-position:50% 60%}.hero-photo::after{background:linear-gradient(90deg,#0a0a0a 0%,transparent 40%),linear-gradient(0deg,#0a0a0a 0%,transparent 30%)}}
+
+/* Celular: a foto da abertura fica em cima (rosto visível) e o texto logo abaixo */
+@media(max-width:899px){
+  .hero{display:block;min-height:0;padding:var(--nav-h) 20px 56px}
+  .hero .hero-photo{position:relative;inset:auto;height:64svh;margin:0 -20px}
+  .hero .hero-photo img{object-position:72% 42%}
+  .hero .hero-photo::after{background:linear-gradient(0deg,#0a0a0a 2%,rgba(10,10,10,.1) 50%,transparent 100%)}
+  .hero .container{margin-top:-80px}
+}
+
+/* faixa que rola (ticker) */
+.ticker{border-block:1px solid var(--line);overflow:hidden;background:#0a0a0a}
+.ticker-track{display:flex;width:max-content;animation:tick 28s linear infinite}
+.ticker span{padding:18px 26px;font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.ticker span::after{content:"+";color:var(--accent-text);margin-left:52px;font-size:1.1rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* =====================================================
+   5) GALERIA
+   ===================================================== */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.head a.more{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.head a.more:hover{color:var(--accent-text)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
+.filters button{padding:9px 18px;border:1px solid var(--line);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:.2s}
+.filters button:hover{color:var(--text);border-color:var(--muted)}
+.filters button.active{background:var(--accent);border-color:var(--accent-text);color:var(--on-accent)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,1fr);gap:12px}}
+.car-count{display:none}
+/* Celular: a galeria vira carrossel (arraste para o lado) */
+@media(max-width:759px){
+  .grid{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;padding:0 20px 6px;scroll-padding:0 20px}
+  .grid::-webkit-scrollbar{display:none}
+  .item{flex:0 0 78%;width:auto;scroll-snap-align:center}
+  .car-count{display:block;margin:0 0 10px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+}
+.item{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--bg-2);cursor:zoom-in;display:block;width:100%;text-align:left}
+.item img,.item video{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) brightness(.7);transition:filter .45s,transform .6s}
+.item:hover img,.item:focus-visible img,.item:hover video,.item:focus-visible video{filter:grayscale(0) brightness(1.05);transform:scale(1.05)}
+.item.hide{display:none}
+.item .info{position:absolute;inset:auto 0 0 0;padding:34px 12px 12px;background:linear-gradient(0deg,rgba(0,0,0,.9),transparent);display:flex;justify-content:space-between;align-items:flex-end}
+.item .info b{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800}
+.item .plus{width:30px;height:30px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-weight:800;font-size:1.2rem}
+
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.95);display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img,.lightbox video{max-height:84vh;max-width:100%}
+.lightbox video{display:none}
+.item .badge{position:absolute;top:10px;left:10px;width:34px;height:34px;display:grid;place-items:center;background:rgba(10,10,10,.75);border-radius:50%;font-size:.8rem;padding-left:2px}
+.lb-btn{position:absolute;width:48px;height:48px;font-size:1.8rem;background:rgba(255,255,255,.08)}
+.lb-btn:hover{background:var(--accent);color:var(--on-accent)}
+.lb-close{top:14px;right:14px}.lb-prev{left:10px;top:50%}.lb-next{right:10px;top:50%}
+.lb-caption{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--muted);font-size:.9rem;padding:0 60px}
+
+/* =====================================================
+   6) SOBRE — "conheça a artista"
+   ===================================================== */
+.about-sec{background:var(--bg-2);border-block:1px solid var(--line)}
+.about{display:grid;gap:30px;align-items:center}
+@media(min-width:900px){.about{grid-template-columns:230px 1fr 1fr;gap:44px}}
+.index{border:1px solid var(--line);padding:22px;background:var(--bg)}
+.index li{list-style:none;display:flex;gap:16px;padding:9px 0;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.index li span{color:var(--muted);font-weight:400}
+.index li:first-child span{color:var(--accent-text)}
+.about h2 em{font-style:normal;display:inline;background:linear-gradient(transparent 82%,var(--accent) 82%)}
+.about p{color:var(--muted);margin-top:14px}
+.about-photo{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line)}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}
+.about-photo::after{content:"EST. BH // ANA LUIZA";position:absolute;right:10px;top:10px;font-size:.62rem;letter-spacing:.2em;font-weight:800;background:var(--accent);color:var(--on-accent);padding:4px 8px}
+
+/* =====================================================
+   SOBRE MIM — mesmo estilo da abertura (foto grande + título)
+   ===================================================== */
+.about-hero{position:relative;overflow:hidden;padding:0 20px 70px;border-block:1px solid var(--line)}
+.about-hero .hero-photo{bottom:auto;height:64svh}
+.about-hero .hero-photo img{object-position:72% 42%}
+.about-hero .hero-photo::after{background:linear-gradient(0deg,#0a0a0a 4%,rgba(10,10,10,.35) 55%,rgba(10,10,10,.2) 100%)}
+.about-hero .container{position:relative;z-index:1}
+.about-top{min-height:0;display:flex;align-items:flex-end;padding-top:calc(var(--nav-h) + 52svh)}
+.about-title{font-size:clamp(4.2rem,21vw,10.5rem);letter-spacing:.01em}
+.about-title b{color:var(--accent-text);font-weight:400}
+.about-body{max-width:560px;margin-top:22px}
+.about-body p{color:#e6e3dc;margin-top:14px}
+@media(min-width:900px){
+  .about-hero{padding-bottom:90px}
+  .about-hero .hero-photo{left:auto;width:58%;height:100%;bottom:0}
+  .about-hero .hero-photo img{object-position:50% 25%}
+  .about-hero .hero-photo::after{background:linear-gradient(90deg,#0a0a0a 0%,transparent 40%),linear-gradient(0deg,#0a0a0a 0%,transparent 25%)}
+  .about-top{min-height:0;padding-top:calc(var(--nav-h) + 70px)}
+}
+
+/* =====================================================
+   7) DEPOIMENTOS
+   ===================================================== */
+.cards{display:grid;gap:12px;margin-top:32px}
+@media(min-width:860px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--bg-2);border:1px solid var(--line);padding:26px}
+.card cite{display:block;margin:0 0 12px;color:var(--accent-text);font-style:normal;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+.card .qm{font-family:'Bebas Neue',sans-serif;font-size:3.4rem;line-height:.6;color:var(--accent-text);margin:6px 0 10px}
+/* Depoimentos: 3 colunas no computador; carrossel no celular */
+@media(min-width:860px){.cards{display:block;columns:3;column-gap:12px}.card{break-inside:avoid;margin-bottom:12px}}
+@media(max-width:859px){
+  .cards{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:32px -20px 0;padding:0 20px 6px;scroll-padding:0 20px}
+  .cards::-webkit-scrollbar{display:none}
+  .card{flex:0 0 82%;scroll-snap-align:center}
+}
+
+/* =====================================================
+   8) COMO FUNCIONA — faixa clara de papel rasgado
+   ===================================================== */
+.paper{background:var(--paper);color:#0a0a0a;padding:90px 20px;clip-path:polygon(0 2%,6% 0,14% 2.5%,23% .5%,33% 2%,44% 0,55% 2.5%,66% .5%,78% 2%,90% 0,100% 2%,100% 98%,92% 100%,80% 98%,68% 100%,55% 98%,43% 100%,30% 98.500%,18% 100%,7% 98%,0 100%)}
+.paper .tagline{color:var(--on-accent);background:var(--accent);display:inline-block;padding:2px 10px}
+.paper .lead{color:#444}
+.steps{list-style:none;counter-reset:s;margin-top:34px;display:grid;gap:12px}
+@media(min-width:900px){.steps{grid-template-columns:repeat(5,1fr)}}
+.steps li{counter-increment:s;background:#0a0a0a;color:var(--text);padding:20px}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:40px;height:40px;background:var(--accent);color:var(--on-accent);font-family:'Bebas Neue',sans-serif;font-size:1.6rem;margin-bottom:12px}
+.steps h3{font-size:1.5rem;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:.9rem}
+
+/* =====================================================
+   9) PERGUNTAS FREQUENTES
+   ===================================================== */
+.faq{max-width:780px;margin-top:30px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;font-weight:600;position:relative;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:28px;height:28px;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);font-size:1.2rem;font-weight:800;transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 22px}
+
+/* =====================================================
+   10) CUIDADOS PÓS-TATTOO
+   ===================================================== */
+.care{display:grid;gap:12px;margin-top:30px}
+@media(min-width:760px){.care{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.care{grid-template-columns:repeat(4,1fr)}}
+.care div{background:var(--bg);border:1px solid var(--line);padding:22px}
+.care h3{font-size:1.6rem;color:var(--accent-text);margin-bottom:8px}
+.care p,.care li{color:var(--muted);font-size:.92rem}
+.care ul{padding-left:18px}
+
+/* =====================================================
+   11) CONTATO
+   ===================================================== */
+.contact{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(90,107,58,.3),transparent 60%),var(--bg)}
+.contact h2{font-size:clamp(3rem,13vw,7rem)}
+.contact h2 b{color:var(--accent-text);font-weight:400}
+.contact .lead{margin-inline:auto}
+.contact .btn.big{font-size:1rem;padding:22px 34px;margin-top:30px;background:#25d366;color:#000;gap:40px}
+.contact .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+.place{margin-top:44px;color:var(--muted);font-size:.95rem}
+.place strong{color:var(--text);letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.place a{color:var(--accent-text);text-decoration:underline;text-underline-offset:3px}
+
+/* =====================================================
+   12) RODAPÉ E BOTÃO FLUTUANTE
+   ===================================================== */
+footer{border-top:1px solid var(--line);padding:34px 20px 110px;text-align:center;color:var(--muted);font-size:.82rem}
+footer .logo{color:var(--text);display:block;margin-bottom:12px}
+footer nav{display:flex;gap:22px;justify-content:center;margin-bottom:14px;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:600}
+footer nav a:hover{color:var(--accent-text)}
+.wa-float{position:fixed;right:16px;bottom:16px;z-index:60;width:60px;height:60px;background:#25d366;display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.6);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:32px;height:32px;fill:#fff}
+
+/* =====================================================
+   EFEITOS DE ROLAGEM (apague este bloco e o script
+   "EFEITOS DE ROLAGEM" para voltar ao normal)
+   ===================================================== */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent-text);transform-origin:0 50%;transform:scaleX(0);z-index:70;pointer-events:none}
+.hero-photo img{will-change:transform;transform:scale(1.15)}
+h2.reveal{letter-spacing:.18em;opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s ease,letter-spacing 1.1s cubic-bezier(.2,.7,.2,1)}
+h2.reveal.in{letter-spacing:.01em;opacity:1;transform:none}
+.item img,.item video{scale:1.14;translate:0 var(--py,0px)}
+.item:hover img,.item:focus-visible img,.item:hover video,.item:focus-visible video{transform:none;scale:1.22}
+.card.reveal,.steps li.reveal,.care div.reveal,.checks li.reveal{transition-delay:calc(var(--i,0) * 90ms)}
+@media (prefers-reduced-motion:reduce){.hero-photo img{transform:none!important}.item img,.item video{scale:1;translate:none}}
+
+/* ---- Traço de tatuagem que se desenha ao rolar (com a máquina na ponta) ---- */
+.vine{position:fixed;top:0;right:2px;width:44px;height:100vh;z-index:55;pointer-events:none}
+.vine svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.vine .stem{fill:none;stroke:var(--accent-text);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vine .leaf{fill:none;stroke:var(--accent-text);stroke-width:1.6;stroke-linecap:round;opacity:0;transition:opacity .5s ease}
+.vine .leaf.on{opacity:1}
+.vine .pen{position:absolute;left:0;top:0;width:40px;height:58px;will-change:transform;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+@media(min-width:900px){.vine{right:14px;width:70px}}
+@media (prefers-reduced-motion:reduce){.vine{display:none}}
+
+/* =====================================================
+   DEPOIMENTOS "SOLTOS" (papéis colados, levemente inclinados e flutuando)
+   ===================================================== */
+.card{background:#f1efe9;color:#161616;border:0;box-shadow:0 16px 34px rgba(0,0,0,.5);position:relative;padding:30px 24px 24px}
+.card p{color:#161616;font-size:1rem}
+.card cite{color:var(--accent)}
+.card .qm{color:var(--accent)}
+.card::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:24px;margin-left:-39px;background:rgba(138,158,120,.65);rotate:-3deg}
+.card:nth-child(odd)::before{rotate:2.5deg}
+@keyframes solto{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.card{animation:solto 6s ease-in-out infinite}
+.card:nth-child(2){animation-duration:7s;animation-delay:-2s}
+.card:nth-child(3){animation-duration:6.5s;animation-delay:-4s}
+.card:nth-child(4){animation-duration:7.5s;animation-delay:-1s}
+.card:nth-child(5){animation-duration:6.2s;animation-delay:-3s}
+.card:nth-child(1){rotate:-2.4deg}.card:nth-child(2){rotate:1.8deg}.card:nth-child(3){rotate:-1deg}.card:nth-child(4){rotate:2.2deg}.card:nth-child(5){rotate:-1.8deg}
+@media(min-width:860px){
+  .cards{display:grid;columns:auto;grid-template-columns:repeat(12,1fr);gap:34px 18px;align-items:start;padding:28px 0 50px}
+  .card{margin:0;break-inside:auto}
+  .card:nth-child(1){grid-column:1/6}
+  .card:nth-child(2){grid-column:7/12;margin-top:64px}
+  .card:nth-child(3){grid-column:2/7;margin-top:-10px}
+  .card:nth-child(4){grid-column:7/12;margin-top:34px}
+  .card:nth-child(5){grid-column:4/9;margin-top:-6px}
+}
+@media(max-width:859px){.cards{padding-top:18px}}
+@media (prefers-reduced-motion:reduce){.card{animation:none}}
+
+/* Cuidados: lista do pré-tattoo, divisor e aviso final */
+.checks{list-style:none;display:grid;gap:10px;margin-top:28px}
+@media(min-width:760px){.checks{grid-template-columns:repeat(2,1fr)}}
+.checks li{display:flex;gap:14px;align-items:flex-start;background:var(--bg);border:1px solid var(--line);padding:16px 18px;color:var(--text);font-size:.95rem}
+.checks li::before{content:"✓";flex:0 0 26px;height:26px;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);font-weight:800;font-size:.85rem}
+.care-sep{height:1px;background:var(--line);margin:70px 0 60px}
+@media(min-width:1000px){.care{grid-template-columns:repeat(3,1fr)}}
+.care-note{margin-top:22px;padding:20px 22px;border:1px solid var(--accent);background:rgba(90,107,58,.16);color:var(--text)}
+.care-note strong{color:var(--accent-text)}
+</style>
+</head>
+
+<body>
+
+<!-- ================= MENU ================= -->
+<header class="nav">
+  <div class="container">
+    <a href="#inicio" class="logo">Ana Luiza<i>Crivellari</i></a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#galeria">Trabalhos</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+      <li><a href="#cuidados">Cuidados</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= ABERTURA ================= -->
+<section class="hero" id="inicio">
+  <div class="hero-photo"><img src="fotos/ana.jpg" alt="Ana Luiza Crivellari"></div>
+  <div class="container">
+    <p class="tagline">Tatuadora · Belo Horizonte</p>
+    <!-- Frase de impacto: edite à vontade -->
+    <h1>Arte que<br>fica na pele<b>.</b></h1>
+    <p class="sub">Tatuagem autoral, feita com cuidado, atitude e biossegurança. 3 anos transformando ideias em traço.</p>
+    <div class="actions">
+      <a href="#galeria" class="btn">Ver trabalhos</a>
+      <a href="#contato" class="btn ghost">Orçamento</a>
+    </div>
+    <p class="scroll">↓ Role</p>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Orçamento sem compromisso</span><span>Projetos exclusivos</span><span>Biossegurança total</span><span>Agende pelo WhatsApp</span>
+    <span>Orçamento sem compromisso</span><span>Projetos exclusivos</span><span>Biossegurança total</span><span>Agende pelo WhatsApp</span>
+  </div>
+</div>
+
+<!-- ================= GALERIA =================
+     Trocar foto: mude src="fotos/...". Mudar estilo: mude data-style (igual ao botão de filtro).
+     Adicionar: copie um bloco <button class="item"> inteiro. -->
+<section id="galeria">
+  <div class="container">
+    <div class="head reveal">
+      <div><p class="tagline">Portfólio</p><h2>Trabalhos →</h2></div>
+      <a class="more" href="https://www.instagram.com/analucrivellari/" target="_blank" rel="noopener">Ver mais no Instagram ↗</a>
+    </div>
+
+    <div class="filters reveal" id="filters" role="group" aria-label="Filtrar por estilo">
+      <button class="active" data-filter="todos">Todos</button>
+      <button data-filter="Blackwork">Blackwork</button>
+      <button data-filter="Fineline">Fineline</button>
+      <button data-filter="Outras">Outras</button>
+    </div>
+
+    <p class="car-count" id="carCount" aria-live="polite"></p>
+    <div class="grid" id="grid">
+      <button class="item" data-style="Fineline"><img src="fotos/gato-mel.jpg" alt="Tatuagem de gatinho com auréola em um pote de mel, em fineline" loading="lazy"><span class="info"><b>Gato no mel</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Fineline"><img src="fotos/datas.jpg" alt="Tatuagem de datas 1969 | 1973 em fineline" loading="lazy"><span class="info"><b>Datas</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Fineline"><img src="fotos/fadas.jpg" alt="Tatuagem de duas fadas com estrelas no ombro" loading="lazy"><span class="info"><b>Fadas</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Fineline"><img src="fotos/morango.jpg" alt="Tatuagem de morango em fineline" loading="lazy"><span class="info"><b>Morango</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Fineline"><img src="fotos/lettering-infinitas.jpg" alt="Tatuagem de lettering: Infinitas possibilidades" loading="lazy"><span class="info"><b>Lettering</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Fineline"><video src="fotos/video-fineline.mp4#t=0.5" muted playsinline preload="metadata"></video><span class="badge">▶</span><span class="info"><b>Vídeo</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/lirios-perna.jpg" alt="Tatuagem de lírios na panturrilha em blackwork" loading="lazy"><span class="info"><b>Lírios</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/rosa.jpg" alt="Tatuagem de rosa no pescoço em blackwork" loading="lazy"><span class="info"><b>Rosa</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/mariposa-dot.jpg" alt="Tatuagem de mariposa em dotwork" loading="lazy"><span class="info"><b>Mariposa</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/tulipas.jpg" alt="Tatuagem de tulipas no braço em blackwork" loading="lazy"><span class="info"><b>Tulipas</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/sol-lua-dot.jpg" alt="Tatuagem de sol e lua em dotwork" loading="lazy"><span class="info"><b>Sol e lua</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><img src="fotos/coelho.jpg" alt="Tatuagem do coelho branco de Alice no braço" loading="lazy"><span class="info"><b>Coelho</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Blackwork"><video src="fotos/video-blackwork.mp4#t=0.5" muted playsinline preload="metadata"></video><span class="badge">▶</span><span class="info"><b>Vídeo</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Outras"><video src="fotos/video-outras.mp4#t=0.5" muted playsinline preload="metadata"></video><span class="badge">▶</span><span class="info"><b>Vídeo</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Outras"><img src="fotos/skate.jpg" alt="Tatuagem de skatista em silhueta" loading="lazy"><span class="info"><b>Homenagem</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Outras"><img src="fotos/desenho-infantil.jpg" alt="Tatuagem de desenho infantil com fada, nuvens e bichinhos" loading="lazy"><span class="info"><b>Homenagem</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Outras"><img src="fotos/cruz-ornamental.jpg" alt="Tatuagem de cruz ornamental no cotovelo" loading="lazy"><span class="info"><b>Cruz</b><span class="plus">+</span></span></button>
+      <button class="item" data-style="Outras"><video src="fotos/video-outras2.mp4#t=0.5" muted playsinline preload="metadata"></video><span class="badge">▶</span><span class="info"><b>Vídeo</b><span class="plus">+</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section id="sobre" class="about-hero">
+  <div class="hero-photo"><img src="fotos/ana.jpg" alt="Ana Luiza Crivellari, tatuadora" loading="lazy"></div>
+  <div class="container">
+    <div class="about-top"><h2 class="about-title">Sobre mim<b>.</b></h2></div>
+    <div class="about-body reveal">
+      <p>Me chamo Ana Luiza, tenho 19 anos e, desde que me entendo por gente, a arte faz parte de mim.</p>
+      <p>Sempre fui muito plural. Amo música, toco alguns instrumentos, componho e canto. Além disso, desde criança amo desenhar e sempre tive vontade de deixar minha arte registrada, marcada na vida das pessoas.</p>
+      <p>Aos 16 anos, me encontrei na tatuagem. Acredito que por amar o desenho, mas também por amar ouvir as histórias de cada cliente, entender por que aquela arte foi escolhida para se tornar eterna e, principalmente, pela incrível sensação de saber que, mesmo que minimamente, contribuí para transformar a vida, a história e a autoestima de alguém.</p>
+      <p>Mas, para mim, tatuar também é cuidar. Por isso, prezo pela biossegurança em cada etapa do processo, desde a preparação do ambiente e dos materiais até os cuidados durante e após a tatuagem. Acredito que uma experiência bonita precisa, antes de tudo, ser segura, responsável e respeitosa.</p>
+      <p>Por isso, te convido a ser “rabiscado” por mim — um apelido carinhoso que dei ao ato de tatuar.</p>
+      <p>Tatuando comigo, o processo vai muito além de um desenho na pele precedido por uma dor. O rabisco vira história, risada, arte, autoestima e, acima de tudo, uma experiência feita com cuidado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS (exemplos — troque pelos reais) ================= -->
+<section id="depoimentos">
+  <div class="container">
+    <p class="tagline reveal">Clientes</p>
+    <h2 class="reveal">O que dizem</h2>
+    <div class="cards">
+      <div class="card reveal"><div class="qm">“</div><cite>Maria Antônia</cite><p>sou super suspeita pra falar mas amo suas tattoos, vc tem o traço lindo e sempre acerta nas loucuras q eu peço, amo dms e recomendo pra td mundo!!!!</p></div>
+      <div class="card reveal"><div class="qm">“</div><cite>Laura</cite><p>ana, você é uma profissional extremamente atenciosa e adorável, além de rabiscar bem demais</p></div>
+      <div class="card reveal"><div class="qm">“</div><cite>Carolina</cite><p>ana querida, que trabalho maravilhoso que vc fez! transformou completamente os traços tristes que já estavam essas tatuagens. Deu uma vida nova pra elas e por isso sou mto grata! Como sempre, mto bom tatuar com vc</p></div>
+      <div class="card reveal"><div class="qm">“</div><cite>Carolina</cite><p>muito feliz em tatuar com vc, ana! foi a unica que conseguiu seguir o projeto do coelho a risca do jeitinho que eu queria e fiquei tao mas tao feliz com os resultados!!!</p></div>
+      <div class="card reveal"><div class="qm">“</div><cite>Marina</cite><p>Realmente acho seu trabalho incrível!!!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<div class="paper" id="como-funciona">
+  <div class="container">
+    <p class="tagline reveal">Agendamento</p>
+    <h2 class="reveal">Como funciona</h2>
+    <ol class="steps">
+      <li class="reveal"><h3>Mande a ideia</h3><p>Chame no WhatsApp com sua referência, tamanho e local do corpo.</p></li>
+      <li class="reveal"><h3>Receba o orçamento</h3><p>Eu analiso e envio o valor e o tempo estimado da sessão.</p></li>
+      <li class="reveal"><h3>Pague o sinal</h3><p>O sinal garante seu horário e o início da criação do desenho.</p></li>
+      <li class="reveal"><h3>Marque a data</h3><p>Escolhemos juntas o melhor dia e horário para você.</p></li>
+      <li class="reveal"><h3>Faça a tattoo</h3><p>No dia, ajustamos o desenho com você e tatuamos com calma.</p></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ================= PERGUNTAS FREQUENTES (edite as respostas) ================= -->
+<section id="faq">
+  <div class="container">
+    <p class="tagline reveal">Dúvidas</p>
+    <h2 class="reveal">Perguntas frequentes</h2>
+    <div class="faq reveal">
+      <details><summary>Dói muito?</summary><p>Depende do local do corpo e da sua sensibilidade. Regiões com mais osso ou pouca gordura costumam doer mais. Faço pausas sempre que precisar e vou te orientando durante a sessão.</p></details>
+      <details><summary>Quanto custa?</summary><p>O valor depende do tamanho, do nível de detalhe e do local da tatuagem. Me mande sua ideia no WhatsApp que envio o orçamento sem compromisso.</p></details>
+      <details><summary>Precisa de sinal?</summary><p>Sim. O sinal reserva o seu horário e cobre a criação do desenho. Ele é abatido do valor final da tatuagem.</p></details>
+      <details><summary>Menor de idade pode tatuar?</summary><p>Somente com autorização e presença de um responsável legal, com documento. Para menores de 16 anos não realizo o procedimento.</p></details>
+      <details><summary>Faz cobertura?</summary><p>Depende da tatuagem antiga: tamanho, cor e escuro do traço. Envie uma foto dela no WhatsApp e eu avalio se é possível e qual a melhor solução.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUIDADOS PÓS-TATTOO ================= -->
+<section id="cuidados" class="about-sec">
+  <div class="container">
+    <p class="tagline reveal">Antes da sessão</p>
+    <h2 class="reveal">Cuidados pré-tattoo</h2>
+    <ul class="checks">
+      <li class="reveal">Hidrate a pele nos dias anteriores.</li>
+      <li class="reveal">Durma bem na noite anterior.</li>
+      <li class="reveal">Alimente-se bem antes da sessão.</li>
+      <li class="reveal">Beba bastante água.</li>
+      <li class="reveal">Evite sol e queimaduras na região a ser tatuada.</li>
+      <li class="reveal">Evite álcool e outras substâncias antes da sessão.</li>
+      <li class="reveal">Avise a tatuadora sobre alergias, condições de saúde e medicamentos relevantes.</li>
+      <li class="reveal">Vá com roupas confortáveis que facilitem o acesso à região.</li>
+    </ul>
+
+    <div class="care-sep"></div>
+
+    <p class="tagline reveal">Depois da sessão</p>
+    <h2 class="reveal">Cuidados pós-tattoo</h2>
+    <div class="care">
+      <div class="reveal"><h3>Ao sair da sessão</h3><p>Retire o plástico no tempo indicado pela tatuadora.</p></div>
+      <div class="reveal"><h3>Hidratação</h3><p>Após 2 dias, comece a aplicar o creme ou a pomada hidratante recomendada.</p></div>
+      <div class="reveal"><h3>Limpeza</h3><p>Nos primeiros dias, é normal a tatuagem liberar um pouco de plasma. Quando a região estiver com aspecto grudento, lave delicadamente com sabonete líquido neutro e seque com papel-toalha, dando leves batidinhas, sem esfregar.</p></div>
+      <div class="reveal"><h3>Coceira e descamação</h3><p>Não coce, não esfregue e não arranque as casquinhas! Se a coceira incomodar, dê leves batidinhas com a mão limpa e mantenha a hidratação em dia.</p></div>
+      <div class="reveal"><h3>Alimentação</h3><p>Evite exageros no consumo de álcool e mantenha uma alimentação equilibrada durante a cicatrização. Não é necessário cortar alimentos específicos, como carne de porco e chocolate, sem uma orientação individualizada.</p></div>
+      <div class="reveal"><h3>Lazer</h3><p>Evite piscina, praia, cachoeira e outros locais de imersão até a cicatrização completa — geralmente, por cerca de 2 a 4 semanas.</p></div>
+      <div class="reveal"><h3>Sol e protetor solar</h3><p>Evite a exposição solar direta durante a cicatrização. Use protetor solar na região somente após a pele estar completamente cicatrizada.</p></div>
+    </div>
+    <p class="care-note reveal"><strong>Lembre-se:</strong> cada pele tem seu tempo de cicatrização! Vermelhidão crescente, dor que piora, pus ou febre são sinais de alerta e precisam de avaliação médica.</p>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section id="contato" class="contact">
+  <div class="container">
+    <p class="tagline reveal">Vamos começar</p>
+    <h2 class="reveal">Seu próximo<br>rabisco<b>.</b></h2>
+    <p class="lead reveal">Conte sua ideia e peça seu orçamento. Respondo com todo carinho!</p>
+    <a class="btn big reveal" id="waBig" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <div class="row reveal">
+      <a class="btn ghost" href="https://www.instagram.com/analucrivellari/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="place reveal"><strong>Local de atendimento</strong><br>
+      Rua do Calvário, 208 — São Marcos, Belo Horizonte/MG<br>
+      <a id="mapLink" target="_blank" rel="noopener">Ver no mapa</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= RODAPÉ ================= -->
+<footer>
+  <a href="#inicio" class="logo">Ana Luiza<i>Crivellari</i></a>
+  <nav>
+    <a href="https://www.instagram.com/analucrivellari/" target="_blank" rel="noopener">Instagram</a>
+    <a id="waFoot" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+  <p>© <span id="year"></span> Ana Luiza Crivellari. Todos os direitos reservados.</p>
+</footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.3.6 4.4 1.7 6.3L3 29l7.2-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.700 12.700-12.700S23 3 16 3zm0 23c-1.800 0-3.600-.5-5.100-1.400l-.4-.2-4.300 1.100 1.100-4.200-.3-.4a10.300 10.300 0 1 1 9 5.100zm5.700-7.700c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100c-.3-.2-1.300-.5-2.500-1.500-.9-.8-1.500-1.800-1.700-2.100-.2-.3 0-.5.100-.6l.5-.5c.1-.2.200-.3.300-.5.100-.2.100-.4 0-.5l-1-2.300c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.900 1.200 2.900.8 3.400.7.500-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Fechar">×</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Foto anterior">‹</button>
+  <img id="lbImg" alt="">
+  <video id="lbVid" controls playsinline></video>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Próxima foto">›</button>
+  <div class="lb-caption" id="lbCap"></div>
+</div>
+
+<script>
+/* =====================================================
+   CONFIGURAÇÃO — edite aqui telefone, mensagem e endereço
+   ===================================================== */
+const CONFIG = {
+  // WhatsApp com código do país (55) + DDD (31) + número. CONFIRME o número!
+  whatsapp: "553198224219",
+  mensagem: "Olá, Ana! Vi seu site e quero fazer um orçamento de tatuagem. Posso te mandar minha ideia?",
+  endereco: "Rua do Calvário, 208, São Marcos, Belo Horizonte, MG"
+};
+
+const waUrl = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.mensagem);
+["waBig","waFloat","waFoot"].forEach(id => document.getElementById(id).href = waUrl);
+document.getElementById("mapLink").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.endereco);
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Menu hambúrguer */
+const burger = document.getElementById("burger"), menu = document.getElementById("menu");
+function toggleMenu(open){
+  menu.classList.toggle("open", open);
+  burger.classList.toggle("open", open);
+  burger.setAttribute("aria-expanded", open);
+}
+burger.addEventListener("click", () => toggleMenu(!menu.classList.contains("open")));
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
+
+/* Elementos surgindo ao rolar */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* Filtro da galeria */
+const items = [...document.querySelectorAll(".item")];
+document.getElementById("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if(!b) return;
+  document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("active", x === b));
+  items.forEach(i => i.classList.toggle("hide", b.dataset.filter !== "todos" && i.dataset.style !== b.dataset.filter));
+});
+
+/* Foto ampliada (setas, Esc e deslizar no celular) */
+const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lbImg"), lbVid = document.getElementById("lbVid"), lbCap = document.getElementById("lbCap");
+let cur = 0;
+const visible = () => items.filter(i => !i.classList.contains("hide"));
+function show(n){
+  const v = visible(); cur = (n + v.length) % v.length;
+  const m = v[cur].querySelector("img, video");
+  const isVid = m.tagName === "VIDEO";
+  lbVid.pause();
+  lbImg.style.display = isVid ? "none" : "block";
+  lbVid.style.display = isVid ? "block" : "none";
+  if(isVid){ lbVid.src = m.currentSrc.split("#")[0]; lbVid.play().catch(()=>{}); lbCap.textContent = "Vídeo"; }
+  else { lbImg.src = m.src; lbImg.alt = m.alt; lbCap.textContent = m.alt; }
+}
+items.forEach(i => i.addEventListener("click", () => {
+  lb.classList.add("open"); document.body.style.overflow = "hidden";
+  show(visible().indexOf(i));
+}));
+function closeLb(){ lbVid.pause(); lb.classList.remove("open"); document.body.style.overflow = ""; }
+document.getElementById("lbClose").onclick = closeLb;
+document.getElementById("lbPrev").onclick = () => show(cur - 1);
+document.getElementById("lbNext").onclick = () => show(cur + 1);
+lb.addEventListener("click", e => { if(e.target === lb) closeLb(); });
+document.addEventListener("keydown", e => {
+  if(!lb.classList.contains("open")) return;
+  if(e.key === "Escape") closeLb();
+  if(e.key === "ArrowLeft") show(cur - 1);
+  if(e.key === "ArrowRight") show(cur + 1);
+});
+let tx = 0;
+lb.addEventListener("touchstart", e => tx = e.touches[0].clientX, {passive:true});
+lb.addEventListener("touchend", e => {
+  const d = e.changedTouches[0].clientX - tx;
+  if(Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1));
+});
+
+/* Carrossel no celular: contador "1 / 16" e volta ao início ao trocar o filtro */
+const grid = document.getElementById("grid"), carCount = document.getElementById("carCount");
+function updateCount(){
+  const v = visible(); if(!v.length) return;
+  const step = v[0].offsetWidth + 10;
+  const n = Math.min(v.length, Math.round(grid.scrollLeft / step) + 1);
+  carCount.textContent = n + " / " + v.length + " · arraste →";
+}
+grid.addEventListener("scroll", updateCount, {passive:true});
+document.getElementById("filters").addEventListener("click", () => { grid.scrollLeft = 0; updateCount(); });
+window.addEventListener("resize", updateCount);
+updateCount();
+
+/* ===== EFEITOS DE ROLAGEM ===== */
+(function(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const bar = document.createElement("div"); bar.className = "progress"; document.body.appendChild(bar);
+  const photos = [...document.querySelectorAll(".hero-photo img")];
+  const heroTxt = document.querySelector(".hero .container");
+  const cards = [...document.querySelectorAll(".item img, .item video")];
+  document.querySelectorAll(".cards,.steps,.care,.checks").forEach(g => [...g.children].forEach((c,i) => c.style.setProperty("--i", i)));
+  let ticking = false;
+  function frame(){
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    const max = document.documentElement.scrollHeight - vh;
+    bar.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+    photos.forEach(img => {
+      const box = img.parentElement.getBoundingClientRect();
+      if(box.bottom < -50 || box.top > vh + 50) return;
+      const lim = box.height * 0.06;
+      const ty = Math.max(-lim, Math.min(lim, -box.top * 0.12));
+      img.style.transform = "translate3d(0," + ty + "px,0) scale(1.15)";
+    });
+    if(heroTxt && innerWidth >= 900 && y < vh * 1.1){
+      heroTxt.style.opacity = Math.max(0, 1 - y / (vh * 0.75));
+      heroTxt.style.transform = "translateY(" + (y * -0.18) + "px)";
+    }
+    cards.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if(r.bottom < 0 || r.top > vh || r.width === 0) return;
+      const off = (r.top + r.height / 2 - vh / 2) / vh;
+      el.style.setProperty("--py", (off * -16).toFixed(1) + "px");
+    });
+  }
+  addEventListener("scroll", () => { if(!ticking){ ticking = true; requestAnimationFrame(frame); } }, {passive:true});
+  addEventListener("resize", frame);
+  frame();
+})();
+
+/* ===== TRAÇO QUE SE DESENHA AO ROLAR ===== */
+(function(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const box = document.createElement("div"); box.className = "vine"; box.setAttribute("aria-hidden", "true");
+  box.innerHTML = '<svg><path class="stem"/><g class="leaves"></g></svg>' +
+    '<svg class="pen" viewBox="0 0 34 50"><g transform="rotate(-28 17 25)">' +
+    '<rect x="11" y="2" width="12" height="20" rx="3" fill="#f4f2ec"/>' +
+    '<rect x="11" y="22" width="12" height="9" fill="#8da069"/>' +
+    '<rect x="13.500" y="31" width="7" height="8" fill="#3a3a3a"/>' +
+    '<path d="M17 39 L17 47" stroke="#f4f2ec" stroke-width="1.500" stroke-linecap="round"/></g></svg>';
+  document.body.appendChild(box);
+  const svg = box.querySelector("svg"), stem = box.querySelector(".stem"), leavesG = box.querySelector(".leaves"), pen = box.querySelector(".pen");
+  let total = 0, leaves = [], W = 0, H = 0;
+  function build(){
+    W = box.clientWidth; H = box.clientHeight;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    const amp = W * 0.28, wave = 210, pts = [];
+    for(let y = 0; y <= H; y += 5) pts.push([W / 2 + amp * Math.sin(y / wave * Math.PI * 2), y]);
+    stem.setAttribute("d", "M" + pts.map(p => p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" L"));
+    total = stem.getTotalLength();
+    stem.style.strokeDasharray = total;
+    leavesG.innerHTML = ""; leaves = [];
+    for(let y = 110, k = 0; y < H - 30; y += 105, k++){
+      const dir = k % 2 ? 1 : -1, x = W / 2 + amp * Math.sin(y / wave * Math.PI * 2);
+      const p = document.createElementNS(NS, "path");
+      p.setAttribute("class", "leaf");
+      p.setAttribute("d", "M" + x.toFixed(1) + " " + y + " q" + (dir * 16) + " -4 " + (dir * 20) + " -16 q" + (-dir * 14) + " 0 " + (-dir * 20) + " 16");
+      leavesG.appendChild(p); leaves.push({el: p, y});
+    }
+    update();
+  }
+  function update(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const prog = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    const len = total * prog;
+    stem.style.strokeDashoffset = total - len;
+    const pt = stem.getPointAtLength(len);
+    pen.style.transform = "translate(" + (pt.x - 14) + "px," + (pt.y - 55) + "px)";
+    leaves.forEach(l => l.el.classList.toggle("on", pt.y > l.y));
+  }
+  let tk = false;
+  addEventListener("scroll", () => { if(!tk){ tk = true; requestAnimationFrame(() => { tk = false; update(); }); } }, {passive:true});
+  addEventListener("resize", build);
+  build();
+})();
+</script>
+</body>
+</html>
